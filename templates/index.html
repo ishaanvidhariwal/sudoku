@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sudoku Lab</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">
+            Sudoku<span>Lab</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">Home</a>
+            <a href="/play">Play</a>
+            <a href="/stats">Statistics</a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="hero">
+
+        <section class="hero-text">
+
+            <p class="eyebrow">
+                THINK. SOLVE. IMPROVE.
+            </p>
+
+            <h1>
+                The puzzle is<br>
+                <span>waiting for you.</span>
+            </h1>
+
+            <p class="description">
+
+                Challenge your logic, sharpen your focus, and track your progress
+                with an intelligent Sudoku experience.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="/play" class="primary-button">
+                    Start Playing →
+                </a>
+
+                <a href="/stats" class="secondary-button">
+                    View Statistics
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <section class="sudoku-preview">
+
+            <div class="preview-grid">
+
+                <div>5</div>
+                <div></div>
+                <div>3</div>
+
+                <div></div>
+                <div>7</div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div>9</div>
+
+
+                <div>6</div>
+                <div></div>
+                <div></div>
+
+                <div>1</div>
+                <div>9</div>
+                <div>5</div>
+
+                <div></div>
+                <div></div>
+                <div>8</div>
+
+
+                <div></div>
+                <div>9</div>
+                <div></div>
+
+                <div></div>
+                <div></div>
+                <div>6</div>
+
+                <div>8</div>
+                <div></div>
+                <div></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <section class="features">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">🧩</div>
+
+            <h3>Generate Puzzles</h3>
+
+            <p>
+                Create new Sudoku puzzles with multiple difficulty levels.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">⏱️</div>
+
+            <h3>Race the Clock</h3>
+
+            <p>
+                Track your solving time and try to beat your personal best.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">📊</div>
+
+            <h3>Track Progress</h3>
+
+            <p>
+                See your games played, completion rate, and best times.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <p>
+            SudokuLab — Built for curious minds.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
