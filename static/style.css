@@ -1,0 +1,789 @@
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+:root {
+
+    --background: #f5f4ef;
+
+    --dark: #1d1d1b;
+
+    --muted: #777;
+
+    --accent: #d8f36b;
+
+    --border: #deddd7;
+
+    --white: #ffffff;
+
+}
+
+
+body {
+
+    background: var(--background);
+
+    color: var(--dark);
+
+    font-family:
+
+        Inter,
+
+        Arial,
+
+        sans-serif;
+
+}
+
+
+nav {
+
+    height: 80px;
+
+    padding: 0 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+
+.logo {
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+}
+
+
+.logo span {
+
+    color: #7d9226;
+
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    gap: 30px;
+
+}
+
+
+.nav-links a {
+
+    text-decoration: none;
+
+    color: var(--dark);
+
+    font-weight: 500;
+
+}
+
+
+.hero {
+
+    min-height: 620px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 80px 10%;
+
+}
+
+
+.hero-text {
+
+    max-width: 600px;
+
+}
+
+
+.eyebrow {
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #7d9226;
+
+    margin-bottom: 20px;
+
+}
+
+
+h1 {
+
+    font-size: clamp(50px, 7vw, 90px);
+
+    line-height: .95;
+
+    letter-spacing: -5px;
+
+}
+
+
+h1 span {
+
+    color: #7d9226;
+
+}
+
+
+.description {
+
+    margin-top: 30px;
+
+    color: var(--muted);
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    max-width: 480px;
+
+}
+
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 35px;
+
+}
+
+
+.primary-button,
+
+.secondary-button {
+
+    padding: 14px 22px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    display: inline-block;
+
+}
+
+
+.primary-button {
+
+    background: var(--dark);
+
+    color: white;
+
+}
+
+
+.secondary-button {
+
+    background: transparent;
+
+    border: 1px solid var(--dark);
+
+    color: var(--dark);
+
+}
+
+
+.sudoku-preview {
+
+    padding: 25px;
+
+    background: var(--accent);
+
+    transform: rotate(4deg);
+
+    border-radius: 12px;
+
+}
+
+
+.preview-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 70px);
+
+    gap: 1px;
+
+    background: var(--dark);
+
+}
+
+
+.preview-grid div {
+
+    width: 70px;
+
+    height: 70px;
+
+    background: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+}
+
+
+.features {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    padding: 60px 10%;
+
+}
+
+
+.feature-card {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+}
+
+
+.feature-icon {
+
+    font-size: 32px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.feature-card h3 {
+
+    margin-bottom: 10px;
+
+}
+
+
+.feature-card p {
+
+    color: var(--muted);
+
+    line-height: 1.6;
+
+}
+
+
+footer {
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: var(--muted);
+
+}
+
+
+.game-container,
+
+.stats-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 70px 30px;
+
+}
+
+
+.game-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.game-header h1,
+
+.stats-heading h1 {
+
+    font-size: 60px;
+
+}
+
+
+.timer-box {
+
+    background: white;
+
+    padding: 20px 30px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+}
+
+
+.timer-box span {
+
+    display: block;
+
+    font-size: 11px;
+
+    color: var(--muted);
+
+    letter-spacing: 2px;
+
+}
+
+
+.timer-box strong {
+
+    font-size: 32px;
+
+}
+
+
+.game-controls {
+
+    margin: 40px 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.difficulty-buttons {
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+
+.difficulty {
+
+    border: 1px solid var(--border);
+
+    background: white;
+
+    padding: 10px 20px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+}
+
+
+.difficulty.active {
+
+    background: var(--dark);
+
+    color: white;
+
+}
+
+
+.game-area {
+
+    display: grid;
+
+    grid-template-columns: 600px 1fr;
+
+    gap: 50px;
+
+    align-items: start;
+
+}
+
+
+.sudoku-board {
+
+    display: grid;
+
+    grid-template-columns: repeat(9, 1fr);
+
+    border: 3px solid var(--dark);
+
+    background: var(--dark);
+
+}
+
+
+.cell {
+
+    width: 100%;
+
+    aspect-ratio: 1;
+
+    border: 1px solid #ccc;
+
+    text-align: center;
+
+    font-size: 24px;
+
+    background: white;
+
+}
+
+
+.cell:nth-child(3n) {
+
+    border-right: 2px solid var(--dark);
+
+}
+
+
+.cell:nth-child(n+19):nth-child(-n+27),
+
+.cell:nth-child(n+46):nth-child(-n+54) {
+
+    border-bottom: 2px solid var(--dark);
+
+}
+
+
+.cell.given {
+
+    background: #eeeeea;
+
+    font-weight: bold;
+
+}
+
+
+.game-sidebar {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+
+.info-card {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+}
+
+
+.info-card h3 {
+
+    margin-bottom: 12px;
+
+}
+
+
+.info-card p {
+
+    color: var(--muted);
+
+    line-height: 1.6;
+
+    margin-bottom: 10px;
+
+}
+
+
+.full-width {
+
+    width: 100%;
+
+    margin-top: 10px;
+
+}
+
+
+.stats-heading {
+
+    margin-bottom: 50px;
+
+}
+
+
+.stats-heading p:not(.eyebrow) {
+
+    margin-top: 20px;
+
+    color: var(--muted);
+
+}
+
+
+.stats-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.stat-card {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+}
+
+
+.stat-icon {
+
+    font-size: 30px;
+
+}
+
+
+.stat-card p {
+
+    margin-top: 20px;
+
+    color: var(--muted);
+
+}
+
+
+.stat-card h2 {
+
+    font-size: 42px;
+
+    margin-top: 10px;
+
+}
+
+
+.difficulty-stats {
+
+    background: white;
+
+    margin-top: 30px;
+
+    padding: 35px;
+
+    border-radius: 12px;
+
+}
+
+
+.difficulty-stats h2 {
+
+    margin-bottom: 30px;
+
+}
+
+
+.difficulty-stat-row {
+
+    display: grid;
+
+    grid-template-columns: 100px 1fr 100px;
+
+    gap: 20px;
+
+    align-items: center;
+
+    margin: 20px 0;
+
+}
+
+
+.progress-bar {
+
+    height: 10px;
+
+    background: #eee;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+}
+
+
+.progress {
+
+    height: 100%;
+
+    background: #7d9226;
+
+    width: 0%;
+
+}
+
+
+@media (max-width: 900px) {
+
+    .hero {
+
+        flex-direction: column;
+
+        gap: 70px;
+
+    }
+
+
+    .game-area {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .sudoku-board {
+
+        max-width: 600px;
+
+    }
+
+
+    .stats-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .nav-links {
+
+        gap: 10px;
+
+        font-size: 13px;
+
+    }
+
+
+    .hero {
+
+        padding: 50px 25px;
+
+    }
+
+
+    .features {
+
+        grid-template-columns: 1fr;
+
+        padding: 30px 25px;
+
+    }
+
+
+    .game-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 30px;
+
+    }
+
+
+    .game-controls {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 20px;
+
+    }
+
+
+    .difficulty-buttons {
+
+        justify-content: space-between;
+
+    }
+
+
+    .stats-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .difficulty-stat-row {
+
+        grid-template-columns: 80px 1fr;
+
+    }
+
+
+    .difficulty-stat-row strong {
+
+        display: none;
+
+    }
+
+}
