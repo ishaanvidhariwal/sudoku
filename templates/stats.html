@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Statistics</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">
+            Sudoku<span>Lab</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">Home</a>
+            <a href="/play">Play</a>
+            <a href="/stats">Statistics</a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="stats-container">
+
+        <div class="stats-heading">
+
+            <p class="eyebrow">
+                YOUR PROGRESS
+            </p>
+
+            <h1>
+                Statistics.
+            </h1>
+
+            <p>
+                Every puzzle solved is proof that your logic is getting sharper.
+            </p>
+
+        </div>
+
+
+        <div class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <span class="stat-icon">
+                    🎮
+                </span>
+
+                <p>
+                    Games Played
+                </p>
+
+                <h2 id="games-played">
+                    0
+                </h2>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-icon">
+                    🏆
+                </span>
+
+                <p>
+                    Puzzles Solved
+                </p>
+
+                <h2 id="puzzles-solved">
+                    0
+                </h2>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-icon">
+                    ⏱️
+                </span>
+
+                <p>
+                    Best Time
+                </p>
+
+                <h2 id="best-time">
+                    --
+                </h2>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-icon">
+                    📈
+                </span>
+
+                <p>
+                    Completion Rate
+                </p>
+
+                <h2 id="completion-rate">
+                    0%
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <section class="difficulty-stats">
+
+            <h2>
+                Performance by Difficulty
+            </h2>
+
+
+            <div class="difficulty-stat-row">
+
+                <span>
+                    Easy
+                </span>
+
+                <div class="progress-bar">
+
+                    <div
+                        id="easy-progress"
+                        class="progress">
+
+                    </div>
+
+                </div>
+
+                <strong id="easy-count">
+                    0 solved
+                </strong>
+
+            </div>
+
+
+            <div class="difficulty-stat-row">
+
+                <span>
+                    Medium
+                </span>
+
+                <div class="progress-bar">
+
+                    <div
+                        id="medium-progress"
+                        class="progress">
+
+                    </div>
+
+                </div>
+
+                <strong id="medium-count">
+                    0 solved
+                </strong>
+
+            </div>
+
+
+            <div class="difficulty-stat-row">
+
+                <span>
+                    Hard
+                </span>
+
+                <div class="progress-bar">
+
+                    <div
+                        id="hard-progress"
+                        class="progress">
+
+                    </div>
+
+                </div>
+
+                <strong id="hard-count">
+                    0 solved
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <button
+            class="secondary-button"
+            id="reset-stats">
+
+            Reset Statistics
+
+        </button>
+
+    </main>
+
+
+    <script>
+
+        const defaultStats = {
+
+            gamesPlayed: 0,
+
+            puzzlesSolved: 0,
+
+            totalTime: 0,
+
+            bestTime: null,
+
+            easy: 0,
+
+            medium: 0,
+
+            hard: 0
+
+        };
+
+
+        let stats = JSON.parse(
+            localStorage.getItem("sudokuStats")
+        ) || defaultStats;
+
+
+        document.getElementById("games-played").textContent =
+            stats.gamesPlayed;
+
+
+        document.getElementById("puzzles-solved").textContent =
+            stats.puzzlesSolved;
+
+
+        document.getElementById("completion-rate").textContent =
+
+            stats.gamesPlayed === 0
+
+            ? "0%"
+
+            : Math.round(
+                (stats.puzzlesSolved / stats.gamesPlayed) * 100
+            ) + "%";
+
+
+        if (stats.bestTime !== null) {
+
+            let minutes = Math.floor(stats.bestTime / 60);
+
+            let seconds = stats.bestTime % 60;
+
+            document.getElementById("best-time").textContent =
+
+                `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+
+        }
+
+
+        document.getElementById("easy-count").textContent =
+            `${stats.easy} solved`;
+
+
+        document.getElementById("medium-count").textContent =
+            `${stats.medium} solved`;
+
+
+        document.getElementById("hard-count").textContent =
+            `${stats.hard} solved`;
+
+
+        let maxScore = Math.max(
+            stats.easy,
+            stats.medium,
+            stats.hard,
+            1
+        );
+
+
+        document.getElementById("easy-progress").style.width =
+            `${(stats.easy / maxScore) * 100}%`;
+
+
+        document.getElementById("medium-progress").style.width =
+            `${(stats.medium / maxScore) * 100}%`;
+
+
+        document.getElementById("hard-progress").style.width =
+            `${(stats.hard / maxScore) * 100}%`;
+
+
+        document.getElementById("reset-stats").onclick = function() {
+
+            localStorage.removeItem("sudokuStats");
+
+            location.reload();
+
+        };
+
+    </script>
+
+</body>
+
+</html>
