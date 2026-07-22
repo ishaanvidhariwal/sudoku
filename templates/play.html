@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Play Sudoku</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">
+            Sudoku<span>Lab</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">Home</a>
+            <a href="/play">Play</a>
+            <a href="/stats">Statistics</a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="game-container">
+
+        <div class="game-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    SUDOKU ARENA
+                </p>
+
+                <h1>
+                    Solve the grid.
+                </h1>
+
+            </div>
+
+
+            <div class="timer-box">
+
+                <span>TIME</span>
+
+                <strong id="timer">
+                    00:00
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="game-controls">
+
+            <div class="difficulty-buttons">
+
+                <button
+                    class="difficulty active"
+                    data-difficulty="easy">
+
+                    Easy
+
+                </button>
+
+
+                <button
+                    class="difficulty"
+                    data-difficulty="medium">
+
+                    Medium
+
+                </button>
+
+
+                <button
+                    class="difficulty"
+                    data-difficulty="hard">
+
+                    Hard
+
+                </button>
+
+            </div>
+
+
+            <button
+                class="primary-button"
+                id="new-game">
+
+                New Puzzle
+
+            </button>
+
+        </div>
+
+
+        <div class="game-area">
+
+
+            <div class="sudoku-board" id="sudoku-board">
+
+            </div>
+
+
+            <div class="game-sidebar">
+
+
+                <div class="info-card">
+
+                    <h3>
+                        How to play
+                    </h3>
+
+                    <p>
+                        Fill every row, column, and 3×3 box with numbers
+                        from 1 to 9.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Actions
+                    </h3>
+
+
+                    <button
+                        class="secondary-button full-width"
+                        id="solve-button">
+
+                        Solve Puzzle
+
+                    </button>
+
+
+                    <button
+                        class="secondary-button full-width"
+                        id="clear-button">
+
+                        Clear Board
+
+                    </button>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Current Game
+                    </h3>
+
+                    <p>
+                        Difficulty:
+                        <strong id="current-difficulty">
+                            Easy
+                        </strong>
+                    </p>
+
+                    <p>
+                        Status:
+                        <strong id="game-status">
+                            Playing
+                        </strong>
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
